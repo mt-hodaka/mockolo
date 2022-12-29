@@ -198,7 +198,6 @@ protocol Foo {
 
 
 let patPartialOverrideMock =
-
 """
 class FooMock: Foo {
     
@@ -210,5 +209,53 @@ class FooMock: Foo {
     }
     typealias T = Any
     typealias U = AnyObject
+}
+"""
+
+let patInheritance =
+"""
+protocol Foo {
+    associatedtype T
+}
+
+/// \(String.mockAnnotation)(typealias: T = String)
+protocol Bar: Foo where T == String {}
+"""
+
+let patInheritanceMock =
+"""
+class BarMock: Bar {
+
+
+
+    init() {
+
+
+    }
+    typealias T = String
+}
+"""
+
+let primaryAssociatedType =
+"""
+protocol Foo<T> {
+    associatedtype T
+}
+
+/// \(String.mockAnnotation)
+protocol Bar: Foo<String> {}
+"""
+
+let primaryAssociatedTypeMock =
+"""
+class BarMock: Bar {
+
+
+
+    init() {
+
+
+    }
+    typealias T = String
 }
 """

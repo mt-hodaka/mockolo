@@ -32,4 +32,14 @@ class ProtocolAssociatedTypeTests: MockoloTestCase {
         verify(srcContent: protocolWithTypealias,
                dstContent: protocolWithTypealiasMock)
     }
+
+    func testPATInheritance() {
+        verify(srcContent: patInheritance,
+               dstContent: patInheritanceMock)
+    }
+
+    func testPrimaryAssociatedType() {
+        verify(srcContent: primaryAssociatedType,
+               dstContent: primaryAssociatedTypeMock)
+    }
 }
